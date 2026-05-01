@@ -43,9 +43,9 @@ PaperSOTA 是一个面向数据集的论文、算法与 SOTA 指标调研 Skill�
 
 | 输入类型 | 示例 | 处理路径 | 默认输出 |
 |---|---|---|---|
-| 研究方向 | `medical image segmentation`、`weakly supervised affordance grounding` | 发现权威数据集，再逐个运行数据集 workflow | 多个数据集报告 |
+| 研究方向 | `medical image segmentation`、`LLM generation` | 发现权威数据集，再逐个运行数据集 workflow | 多个数据集报告 |
 | 论文或论文链接 | arXiv URL、DOI URL、OpenReview URL、论文标题 | 获取论文信息，识别论文使用的数据集，再运行数据集 workflow | 论文相关数据集报告 |
-| 明确数据集 | `ImageNet`、`AGD20K`、`PIADv2` | 验证数据集身份，检索真实使用该数据集的论文，抽取指标 | 单数据集 SOTA 报告 |
+| 明确数据集 | `ImageNet`、`DATAXX` | 验证数据集身份，检索真实使用该数据集的论文，抽取指标 | 单数据集 SOTA 报告 |
 
 ## 目录结构
 
@@ -55,17 +55,17 @@ papersota/
 |-- README.md
 |-- README.en.md
 |-- agents/
-|   `-- openai.yaml
+|   |-- openai.yaml
 |-- images/
 |   |-- PaperSOTA.png
-|   `-- PaperSOTA_en.png
+|   |-- PaperSOTA_en.png
 |-- scripts/
-|   `-- papersota.py
+|   |-- papersota.py
 |-- references/
 |   |-- extraction-schema.md
-|   `-- report-template.md
-`-- examples/
-    `-- agd20k-report.md
+|   |-- report-template.md
+|-- examples/
+    |-- example-report.md
 ```
 
 ## CLI 用法
@@ -73,22 +73,22 @@ papersota/
 ### 数据集模式
 
 ```bash
-python scripts/papersota.py "AGD20K" \
+python scripts/papersota.py "medical image segmentation" \
   --input-type dataset \
-  --candidate-paper 50 \
+  --candidate-paper 100 \
   --fulltext \
-  --out-dir ./papersota-agd20k
+  --out-dir ./papersota-medical image segmentation
 ```
 
 ### 研究方向模式
 
 ```bash
-python scripts/papersota.py "weakly supervised affordance grounding" \
+python scripts/papersota.py "LLM generation" \
   --input-type field \
   --max-datasets 5 \
   --candidate-paper 50 \
   --fulltext \
-  --out-dir ./papersota-affordance
+  --out-dir ./papersota-LLM generation
 ```
 
 ### 论文或论文链接模式
@@ -133,10 +133,11 @@ CLI 会在 `--out-dir` 中写入：
 
 示例表格：
 
-| Paper | Seen KLD↓ | Seen SIM↑ | Seen NSS↑ | Unseen KLD↓ | Unseen SIM↑ | Unseen NSS↑ |
+| Paper | metrics1↓ | metrics2↑ | metrics3↑ | metrics4↓ | metrics5↑ | metricsx↑ |
 |---|---:|---:|---:|---:|---:|---:|
-| Cross-View-AG, CVPR2022 [1] | 1.538 | 0.334 | 0.927 | 1.787 | 0.285 | 0.829 |
-| PLSP, ICLR2025 [6] | **0.890** | **0.510** | **1.547** | **1.153** | **0.437** | **1.418** |
+| Model-1, CVPR2022 [1] | 1.234 | 0.345 | 0.987 | 1.001 | 0.234 | 0.678 |
+| Model-., CVPR20xx [2] | 1.111 | 0.333 | 0.999 | 1.111 | 0.285 | 0.829 |
+| Model-x, ICLR2025 [3] | **0.890** | **0.510** | **1.000** | **0.555** | **0.404** | **1.123** |
 
 ## 质量检查
 
@@ -144,7 +145,7 @@ CLI 会在 `--out-dir` 中写入：
 - 按 DOI、arXiv ID、Semantic Scholar ID、规范化标题和 URL 去重。
 - 区分数据集引入论文、baseline 论文和后续算法论文。
 - 只保留真实使用该数据集的论文，剔除仅提及数据集的候选。
-- 在同一 split、协议和训练设置内比较指标，不跨协议加粗最佳值。
+- 在同一数据集划分、协议和训练设置内比较指标，不跨协议加粗最佳值。
 - 对未找到的指标写 `—`，并在 notes 中说明 `metric not found in accessible text`。
 
 ## 重要说明

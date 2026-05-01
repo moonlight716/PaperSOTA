@@ -45,9 +45,9 @@ The default report language is Chinese while table headers and metric names rema
 
 | Input type | Example | Route | Default output |
 |---|---|---|---|
-| Research field | `medical image segmentation`, `weakly supervised affordance grounding` | Discover authoritative datasets, then run the dataset workflow for each one | Multiple dataset reports |
+| Research field | `medical image segmentation`, `LLM generation` | Discover authoritative datasets, then run the dataset workflow for each one | Multiple dataset reports |
 | Paper or paper link | arXiv URL, DOI URL, OpenReview URL, paper title | Fetch or infer paper metadata, identify datasets used by the paper, then run the dataset workflow | Dataset reports related to the paper |
-| Explicit dataset | `ImageNet`, `AGD20K`, `PIADv2` | Verify dataset identity, find papers that actually use the dataset, and extract metrics | Single dataset SOTA report |
+| Explicit dataset | `ImageNet`, `DATAXX` | Verify dataset identity, find papers that actually use the dataset, and extract metrics | Single dataset SOTA report |
 
 ## Directory Structure
 
@@ -57,17 +57,17 @@ papersota/
 |-- README.md
 |-- README.en.md
 |-- agents/
-|   `-- openai.yaml
+|   |-- openai.yaml
 |-- images/
 |   |-- PaperSOTA.png
-|   `-- PaperSOTA_en.png
+|   |-- PaperSOTA_en.png
 |-- scripts/
-|   `-- papersota.py
+|   |-- papersota.py
 |-- references/
 |   |-- extraction-schema.md
-|   `-- report-template.md
-`-- examples/
-    `-- agd20k-report.md
+|   |-- report-template.md
+|-- examples/
+    |-- example-report.md
 ```
 
 ## CLI Usage
@@ -75,22 +75,22 @@ papersota/
 ### Dataset mode
 
 ```bash
-python scripts/papersota.py "AGD20K" \
+python scripts/papersota.py "medical image segmentation" \
   --input-type dataset \
-  --candidate-paper 50 \
+  --candidate-paper 100 \
   --fulltext \
-  --out-dir ./papersota-agd20k
+  --out-dir ./papersota-medical image segmentation
 ```
 
 ### Field or direction mode
 
 ```bash
-python scripts/papersota.py "weakly supervised affordance grounding" \
+python scripts/papersota.py "LLM generation" \
   --input-type field \
   --max-datasets 5 \
   --candidate-paper 50 \
   --fulltext \
-  --out-dir ./papersota-affordance
+  --out-dir ./papersota-LLM generation
 ```
 
 ### Paper or paper-link mode
@@ -135,10 +135,11 @@ A final report should include at least:
 
 Example table:
 
-| Paper | Seen KLD↓ | Seen SIM↑ | Seen NSS↑ | Unseen KLD↓ | Unseen SIM↑ | Unseen NSS↑ |
+| Paper | metrics1↓ | metrics2↑ | metrics3↑ | metrics4↓ | metrics5↑ | metricsx↑ |
 |---|---:|---:|---:|---:|---:|---:|
-| Cross-View-AG, CVPR2022 [1] | 1.538 | 0.334 | 0.927 | 1.787 | 0.285 | 0.829 |
-| PLSP, ICLR2025 [6] | **0.890** | **0.510** | **1.547** | **1.153** | **0.437** | **1.418** |
+| Model-1, CVPR2022 [1] | 1.234 | 0.345 | 0.987 | 1.001 | 0.234 | 0.678 |
+| Model-., CVPR20xx [2] | 1.111 | 0.333 | 0.999 | 1.111 | 0.285 | 0.829 |
+| Model-x, ICLR2025 [3] | **0.890** | **0.510** | **1.000** | **0.555** | **0.404** | **1.123** |
 
 ## Quality Checks
 
