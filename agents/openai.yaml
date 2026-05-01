@@ -1,0 +1,12 @@
+interface:
+  display_name: PaperSOTA
+  short_description: Build dataset-centric paper, algorithm, and SOTA metric tables.
+  icon: "📊"
+  primary_color: '#4F81BD'
+policy:
+  products:
+    - chatgpt
+    - codex
+    - api
+    - atlas
+  allow_implicit_invocation: true
