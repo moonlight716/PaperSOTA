@@ -43,7 +43,7 @@ PaperSOTA 是一个面向数据集的论文、算法与 SOTA 指标调研 Skill�
 
 | 输入类型 | 示例 | 处理路径 | 默认输出 |
 |---|---|---|---|
-| 研究方向 | `medical image segmentation`、`LLM generation` | 发现权威数据集，再逐个运行数据集 workflow | 多个数据集报告 |
+| 研究方向 | `medical image segmentation`、`LLM generation` | 发现权威数据集，再逐个运行数据集 workflow | 多数据集报告 |
 | 论文或论文链接 | arXiv URL、DOI URL、OpenReview URL、论文标题 | 获取论文信息，识别论文使用的数据集，再运行数据集 workflow | 论文相关数据集报告 |
 | 明确数据集 | `ImageNet`、`DATAXX` | 验证数据集身份，检索真实使用该数据集的论文，抽取指标 | 单数据集 SOTA 报告 |
 
