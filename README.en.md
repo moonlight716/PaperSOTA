@@ -135,12 +135,10 @@ A final report should include at least:
 
 Example table:
 
-```markdown
 | Paper | Seen KLD↓ | Seen SIM↑ | Seen NSS↑ | Unseen KLD↓ | Unseen SIM↑ | Unseen NSS↑ |
 |---|---:|---:|---:|---:|---:|---:|
 | Cross-View-AG, CVPR2022 [1] | 1.538 | 0.334 | 0.927 | 1.787 | 0.285 | 0.829 |
 | PLSP, ICLR2025 [6] | **0.890** | **0.510** | **1.547** | **1.153** | **0.437** | **1.418** |
-```
 
 ## Quality Checks
 
@@ -153,7 +151,7 @@ Example table:
 
 ## Important Notes
 
-PaperSOTA is a research assistant, not the final authority. Public APIs may miss papers, PDFs may be inaccessible or hard to parse, and some metrics may appear only in supplementary material, figures, or external leaderboards. Before publication or citation, manually verify claims against original papers, official benchmark pages, and supplementary material.
+PaperSOTA is an AI research assistant, not the final authority. Public APIs may miss papers, PDFs may be inaccessible or hard to parse, and some metrics may appear only in supplementary material, figures, or external leaderboards. Before publication or citation, manually verify claims against original papers, official benchmark pages, and supplementary material.
 
 ## License
 
