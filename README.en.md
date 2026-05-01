@@ -22,16 +22,16 @@ The default report language is Chinese while table headers and metric names rema
 ## PaperSOTA Workflow
 
 ```text
-+-------------------+      +---------------------+      +----------------------+
++-------------------+      +----------------------+      +----------------------+
 | User input        | ---> | Input classification | ---> | Workflow routing     |
 | field / paper /   |      | field / paper /      |      | discover / extract / |
 | dataset           |      | dataset              |      | verify               |
-+-------------------+      +---------------------+      +----------------------+
++-------------------+      +----------------------+      +----------------------+
                                                                   |
                                                                   v
 +-------------------+      +---------------------+      +----------------------+
 | Final report      | <--- | SOTA table building | <--- | Metric extraction    |
-| Markdown + notes  |      | best score bolding   |      | HTML / PDF / pages   |
+| Markdown + notes  |      | best score bolding  |      | HTML / PDF / pages   |
 +-------------------+      +---------------------+      +----------------------+
                                                                   ^
                                                                   |

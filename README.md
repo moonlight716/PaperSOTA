@@ -20,16 +20,16 @@ PaperSOTA 是一个面向数据集的论文、算法与 SOTA 指标调研 Skill�
 ## PaperSOTA 处理流程
 
 ```text
-+-------------------+      +---------------------+      +----------------------+
++-------------------+      +----------------------+      +----------------------+
 | User input        | ---> | Input classification | ---> | Workflow routing     |
 | field / paper /   |      | field / paper /      |      | discover / extract / |
 | dataset           |      | dataset              |      | verify               |
-+-------------------+      +---------------------+      +----------------------+
++-------------------+      +----------------------+      +----------------------+
                                                                   |
                                                                   v
 +-------------------+      +---------------------+      +----------------------+
 | Final report      | <--- | SOTA table building | <--- | Metric extraction    |
-| Markdown + notes  |      | best score bolding   |      | HTML / PDF / pages   |
+| Markdown + notes  |      | best score bolding  |      | HTML / PDF / pages   |
 +-------------------+      +---------------------+      +----------------------+
                                                                   ^
                                                                   |
